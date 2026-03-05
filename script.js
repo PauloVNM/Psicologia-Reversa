@@ -30,15 +30,45 @@ document.getElementById('reality-check').addEventListener('click', () => {
 document.getElementById('form-decepcao').addEventListener('submit', function(event) {
     event.preventDefault(); 
 
-    const nome = document.getElementById('nome').value;
+    const name = document.getElementById('nome').value;
     const email = document.getElementById('email').value;
     const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+    // Captura o parágrafo que criamos no HTML
+    const mensagemRetorno = document.getElementById('mensagem-retorno');
 
+    // Validação manual básica de campos vazios (já que tiramos o poder do navegador)
+    if (!name || !email) {
+        mensagemRetorno.style.color = '#ff4d4d'; // Cor de erro
+        mensagemRetorno.textContent = "Preenche a porcaria dos campos antes de enviar. Não temos bola de cristal.";
+        return; // Interrompe a execução aqui
+    }
+
+    // Validação do Regex do e-mail
     if (!regexEmail.test(email)) {
-        alert(`Até para digitar um e-mail falso você falha, ${nome || 'criatura'}. Tenta usar o formato certo: lixo@provedor.com`);
+        mensagemRetorno.style.color = '#ff4d4d'; // Cor de erro
+        mensagemRetorno.textContent = `Até para digitar um e-mail falso você falha, ${name}. Tenta usar o formato certo: lixo@provedor.com`;
     } else {
-        alert(`Atestado assinado, ${nome}. Seu e-mail '${email}' foi cadastrado no nosso banco de dados inútil e será ignorado com sucesso.`);
-        
-        this.reset();
+        // Muda o texto para dar a falsa sensação de que algo útil está acontecendo
+        mensagemRetorno.style.color = '#f0f0f0';
+        mensagemRetorno.textContent = "Processando sua mediocridade... aguarde.";
+
+        // Parâmetros que vão bater com as variáveis do seu template no EmailJS
+        const templateParams = {
+            name: name,
+            email: email
+        };
+
+        // O disparo do e-mail
+        emailjs.send('service_vl5qz14', 'template_2dohp4q', templateParams)
+            .then(function(response) {
+                mensagemRetorno.style.color = '#ff4d4d';
+                mensagemRetorno.textContent = `Feito, ${name}. O questionário foi enviada com sucesso para ${email}. Vá checar sua caixa de entrada (ou o spam).`;
+                document.getElementById('form-decepcao').reset();
+            }, function(error) {
+                mensagemRetorno.style.color = '#ff4d4d';
+                mensagemRetorno.textContent = `Até para te ofender o sistema falha. Erro ao enviar o e-mail.`;
+                console.log('Erro do EmailJS:', error);
+            });
     }
 });

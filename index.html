@@ -12,7 +12,6 @@
         
         <div class="hero-content">
             <h1>Life isn't a strawberry.</h1>
-            <p class="slogan">As pessoas são como morangos: amargos, estragam rápido e, se tiverem sorte, "bonitos".</p>
             <button id="reality-check">Receber Motivação</button>
         </div>
     </header> 
@@ -24,46 +23,76 @@
             <div class="container">
                 <p><strong>Objetivo:</strong> Desencorajar sua esperança de vida, afinal o mundo tá meio cheio, né?</p>
                 <p><strong>Público:</strong> Pessoas exaustas que já perceberam que psicólogos são acompanhantes que cobram mais e fazem menos.</p>
+                <p><strong>Problema que resolve:</strong> Existem dois tipos de problema: o meu e o seu. Com esse projeto estou resolvendo o meu, ao mesmo tempo que menosprezo os seus.</p>
             </div>
         </div>
-
-        <div class="split-content content-form">
-            <h2>Assuma a Culpa</h2>
-            <form id="form-decepcao" class="decepcao-form">
-                <div class="input-group">
-                    <input id="nome" name="nome" placeholder="Seu nome irrelevante" required>
-                    <input id="email" name="email" placeholder="Seu Gmail para spam" required>
-                </div>
-                <button type="submit" class="btn-submit">Assinar Atestado de incompetência psicológica</button>
-            </form>
+<div class="split-content content-form">
+    <h2>Receba nossa Avaliação Psicológica</h2>
+    <form id="form-decepcao" class="decepcao-form" novalidate>
+        <div class="input-group">
+            <input id="nome" name="nome" placeholder="Seu nome" required>
+            <input id="email" name="email" placeholder="Seu Gmail para spam" required>
         </div>
+        <button type="submit" class="btn-submit">Enviar Quiz para meu E-mail</button>
+        
+        <p id="mensagem-retorno" style="margin-top: 15px; font-weight: bold; text-align: center;"></p>
+    </form>
+</div>
 
     </div>
 
+    <div class="split-layout section">
+        <div class="split-content">
+            <h2>Metodologia & Operação</h2>
+            <div class="container">
+                <p><strong>Metodologia:</strong> Gemini, Ctrl+C e Ctrl+V.</p>
+                <p><strong>Como funciona:</strong> Não é feitiçaria, é tecnologia.</p>
+            </div>
+        </div>
+
+        <div class="split-content">
+            <h2>Resultados Esperados</h2>
+            <div class="container">
+                <p><strong>O que esperamos:</strong> Ganhar nota para passar. O resto é dano colateral aceitável.</p>
+            </div>
+        </div>
+    </div>
+    
     <footer id="equipe">
-    <div class="footer-split">
-        <div class="footer-column">
-            <h2>Culpados</h2>
-            <div class="team-container">
-                <div class="card">
-                    <h4>Paulo Victor</h4>
-                    <p>Dev</p>
-                    <img src="paulo.png" alt="Paulo Victor">
+        <div class="footer-split">
+            <div class="footer-column">
+                <h2>Culpados</h2>
+                <div class="team-container">
+                    <div class="card">
+                        <h4>Paulo Victor</h4>
+                        <p>Dev | ADS</p>
+                        <img src="paulo.png" alt="Paulo Victor">
+                    </div>
+                    <div class="card">
+                        <h4>Luis</h4>
+                        <p>Dev | ADS</p>
+                        <img src="luiz (Edited).png" alt="Luis">
+                    </div>
                 </div>
-                <div class="card">
-                    <h4>Luis</h4>
-                    <p>Dev</p>
-                    <img src="luiz (Edited).png" alt="Luis">
+                
+                <div style="margin-top: 25px; border-top: 1px solid #333; padding-top: 15px;">
+                    <p><strong>Repositório:</strong> <a href="https://github.com/PauloVNM/Psicologia-Reversa.git" target="_blank" style="color: #ff4d4d; text-decoration: none;">GitHub do Projeto</a></p>
                 </div>
             </div>
-        </div>
 
-        <div class="footer-column footer-text">
-            <h2>Esclarecimento</h2>
-            <p>A vida não é um morango e este rodapé é a prova disso. Se você chegou até aqui esperando um final feliz ou um formulário de contato que funciona, sinto informar que a realidade é mais amarga. Aceite o código, ignore o erro e continue compilando.</p>
+            <div class="footer-column footer-text">
+                <h2>Esclarecimento</h2>
+                <p>Este projeto é uma sátira desenvolvida para a disciplina ADS. Através do uso de humor ácido. O objetivo não é ofender, mas sim demonstrar competências técnicas de frontend de forma disruptiva. Qualquer semelhança com a sua exaustão diária é mera coincidência.</p>
+            </div>
         </div>
-    </div>
-</footer>
+    </footer>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+       (function(){
+          emailjs.init("m9cmDh3wqUWGA23CY");
+       })();
+    </script>
+    
     <script src="script.js"></script>
 </body>
 </html>
